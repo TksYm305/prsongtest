@@ -1,24 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:site_name" content="">
+  <meta name="og:description" content="">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+  <script src="config.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.title = config.title;
+      document.querySelector('meta[name="og:site_name"]').setAttribute("content", config.title);
+      document.querySelector('meta[name="og:description"]').setAttribute("content", config.description);
+    });
+  </script>
 </head>
-<body class="bg-green-50 flex flex-col items-center justify-center min-h-screen p-6">
-    <div class="bg-white p-8 rounded-lg shadow-xl text-center">
-        <h1 class="text-3xl font-bold text-green-700 mb-6">Welcome to Page 2!</h1>
-        <p class="text-gray-700 mb-6">This page is located in <code>subfolder2</code>.</p>
-        <a href="../index.html"
-           class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
-            Go Back to Main Page
-        </a>
+
+<body>
+
+  <div class="modal-overlay" id="modalOverlay" onclick="closeSettings()"></div>
+  <div class="modal" id="settingsModal">
+    <h2>Settings</h2>
+    <div class="option-group">
+      <p>Format:</p>
+      <button class="option-button active" data-type="format" onclick="selectOption('format', this)">Video</button>
+      <button class="option-button" data-type="format" onclick="selectOption('format', this)">Audio</button>
     </div>
+    <div class="option-group">
+      <p>Region:</p>
+      <button class="option-button active" data-type="region" onclick="selectOption('region', this)">Europe</button>
+      <button class="option-button" data-type="region" onclick="selectOption('region', this)">NA West</button>
+      <button class="option-button" data-type="region" onclick="selectOption('region', this)">NA East</button>
+    </div>
+    <button class="close-button" onclick="closeSettings()">Close</button>
+  </div>
+
+  <div id="main" class="main-page">
+
+    <div class="title">Press "Start" to begin sorting.</div>
+
+    <div id="buttons" class="button-container">
+      <button id="settings" class="basic-button" onclick="showSettings()">Settings</button>
+      <button id="start" class="basic-button" onclick="start()">Start</button>
+      <button id="load" class="basic-button" onclick="loadProgress()">Load</button>
+    </div>
+
+    <div id="duel" class="duel-container"></div>
+
+    <div class="progress">
+      <span class="progressbattle"></span>
+      <div class="progress-container" hidden>
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
 </body>
+
 </html>
