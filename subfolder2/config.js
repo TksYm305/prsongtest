@@ -1,5 +1,5 @@
 const config = {
-    localStoragePrefix: "nousagi-disney-songs-party-rank-sorter-may25",
-    title: "Nousagis Disney Songs Party Rank Sorter",
-    description: "Nousagis party rank sorter for disney songs."
+    localStoragePrefix: "nousagi-2001-anisong-party-rank-sorter-may25",
+    title: "Nousagis 2001 Anisong Party Rank Sorter",
+    description: "Nousagis party rank sorter for 2001 anisongs."
 };
